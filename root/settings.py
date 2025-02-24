@@ -13,7 +13,6 @@ import os.path
 from pathlib import Path
 
 from decouple import config
-from django.conf.global_settings import STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -148,7 +147,7 @@ MEDIA_ROOT = BASE_DIR / "media/"
 
 STATIC_URL = os.path.join("static/")
 STATIC_ROOT = os.path.join("staticfiles")
-# STATICFILES_DIRS = os.path.join("static/")
+STATICFILES_DIRS = os.path.join("static/")
 
 
 # Default primary key field type
