@@ -27,7 +27,8 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ["fazliddin1234.pythonanywhere.com"]
+ALLOWED_HOSTS = ["fazliddin1234.pythonanywhere.com", "127.0.0.1", "localhost"]
+
 
 
 
@@ -147,7 +148,7 @@ MEDIA_ROOT = BASE_DIR / "media/"
 
 STATIC_URL = os.path.join("static/")
 STATIC_ROOT = os.path.join("staticfiles")
-STATICFILES_DIRS = os.path.join("static/")
+# STATICFILES_DIRS = os.path.join("static/")
 
 
 # Default primary key field type
@@ -158,3 +159,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/fazliddin1234/django_debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
