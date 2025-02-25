@@ -160,6 +160,8 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+import os
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -167,15 +169,13 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/home/fazliddin1234/django_debug.log',
+            'filename': os.path.join(BASE_DIR, 'django_debug.log'),
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
     },
 }
+
 
